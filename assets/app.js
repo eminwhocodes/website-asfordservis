@@ -277,7 +277,7 @@ document.documentElement.classList.add("js");
         .fromTo(".hero .eyebrow", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" })
         .fromTo(".title-line > span", { yPercent: 110 }, { yPercent: 0, duration: 1.05, stagger: 0.1, ease: "power4.out" }, "-=0.35")
         .fromTo(".hero__lead, .hero__actions, .hero__proof", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.1, ease: "power3.out" }, "-=0.55")
-        .fromTo(".hero-machine", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 1.2, ease: "power3.out" }, "-=1.1");
+        .fromTo(".hero-photo", { autoAlpha: 0, x: 48 }, { autoAlpha: 1, x: 0, duration: 1.05, ease: "power3.out" }, "-=1.05");
 
       document.querySelectorAll(".reveal-up").forEach((element) => {
         if (element.closest(".hero")) return;
@@ -293,16 +293,11 @@ document.documentElement.classList.add("js");
         );
       });
 
-      gsap.to(".hero-machine__car", {
-        yPercent: 7,
+      gsap.to(".hero-photo img", {
+        yPercent: 4,
+        scale: 1.04,
         ease: "none",
         scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }
-      });
-
-      gsap.to(".models__backdrop", {
-        xPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: ".models", start: "top bottom", end: "bottom top", scrub: 1 }
       });
 
       return;

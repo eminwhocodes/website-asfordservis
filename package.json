@@ -1,0 +1,14 @@
+{
+  "name": "as-ford-servis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A&S Auto Premium Car Service kurumsal web sitesi",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "test": "node tests/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

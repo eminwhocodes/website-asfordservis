@@ -1,8 +1,50 @@
-# A&S Ford Servis — web sitesi araştırma ve uygulama planı
+# A&S Ford Servis — kurumsal web sitesi
 
-Bu depo, Adana'da hizmet veren A&S Ford Servis için hazırlanacak web sitesinin araştırma, SEO/AEO, içerik, UI/UX ve geliştirme planını içerir.
+Bu depo, Adana'da hizmet veren A&S Ford Servis için hazırlanan kurumsal web sitesini; rakip araştırmasını, SEO/AEO stratejisini, içerik mimarisini ve geliştirme planını içerir.
 
 > Araştırma tarihi: 15 Eylül 2026. Arama sonuçları konuma, cihaza ve kişiselleştirmeye göre değişir. Bu çalışma kesin sıra raporu değil; görünür arama sonuçları, rakip siteler ve doğrulanabilen açık kaynakların stratejik denetimidir.
+
+## Uygulama durumu
+
+Ana sayfanın ilk işlevsel tasarımı `main` dalında hazırdır.
+
+- Sinematik, koyu ve Ford odaklı özgün hero
+- Sticky/blur header, masaüstü mega menü ve erişilebilir mobil menü
+- Belirti seçerek servis talebini otomatik doldurma
+- Ford model seçici ve talep formu eşleşmesi
+- Hizmet, süreç, atölye kanıtı, usta, SSS ve konum bölümleri
+- Form verilerini yapılandırılmış WhatsApp mesajına dönüştüren randevu akışı
+- Mobilde sabit `Ara / WhatsApp / Yol Tarifi` eylemleri
+- LocalBusiness/AutoRepair yapılandırılmış verisi ve temel teknik SEO
+- Harici animasyon kütüphaneleri yüklenmese de çalışan progressive enhancement yapısı
+
+Gerçek atölye/usta çekimleri teslim edildiğinde kod içindeki şematik görseller, performans ve erişilebilirlik korunarak gerçek içeriklerle değiştirilecektir.
+
+## Yerel önizleme
+
+Projede kurulum gerektiren bir bağımlılık yoktur. Node.js 20 veya üzeri ile:
+
+```bash
+npm run dev
+```
+
+Ardından `http://127.0.0.1:4173` adresini açın.
+
+Kontrolleri çalıştırmak için:
+
+```bash
+npm test
+```
+
+Smoke test; temel assetleri, bölüm bağlantılarını, telefon/WhatsApp tutarlılığını, Ford model-form eşleşmesini, JS sözdizimini ve responsive/erişilebilirlik korumalarını denetler.
+
+## Teknik yapı
+
+- Semantik HTML5
+- Token tabanlı, responsive CSS3
+- Vanilla JavaScript
+- GSAP + ScrollTrigger, Lenis ve Swiper (CDN; kütüphane yokluğunda fallback mevcut)
+- Framework, Bootstrap, jQuery ve Tailwind yok
 
 ## Ana strateji
 
@@ -32,6 +74,10 @@ Başarı formülü:
 - Garanti, orijinal parça, 7/24 yol yardım, ücretsiz çekici/vale, teslim süresi veya fiyat avantajı gibi iddialar belge ve operasyon karşılığı olmadan yayınlanmayacak.
 - Sahte yorum, sahte sayaç, sahte “%100 memnuniyet” veya kendinden menkul sertifika kullanılmayacak.
 - İlçe sayfaları yalnızca gerçek hizmet alanı ve sayfaya özgü kanıt/içerik varsa açılacak; kopya lokasyon sayfaları oluşturulmayacak.
+
+## Çalışma disiplini
+
+Oturum/limit kesintilerinde ilerleme kaybolmasın diye her anlamlı ve çalışır checkpoint `main` dalına küçük, geri alınabilir commitler halinde gönderilir. Ayrıntılar [AGENTS.md](AGENTS.md) dosyasındadır.
 
 ## Önerilen ilk sürüm
 

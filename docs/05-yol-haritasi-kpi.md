@@ -1,18 +1,20 @@
 # Yol haritası, KPI ve kabul kriterleri
 
-## 1. Önerilen teknik yaklaşım
+## 1. Seçilen teknik yaklaşım
 
-Repo boş olduğu için önerilen varsayılan:
+Uygulama için seçilen yapı:
 
-- Next.js App Router + TypeScript
-- Statik üretim/SSR; kritik içerik ilk HTML'de
-- Tailwind veya küçük token tabanlı stil sistemi
-- İçerik için MDX ya da tip güvenli veri dosyaları
-- Formlar için sunucu tarafı endpoint + spam/rate limit
-- Görsel optimizasyonu ve CDN
-- GitHub Actions: lint, typecheck, test, build, Lighthouse bütçesi
+- Semantik HTML5; kritik içerik ilk HTML'de
+- Token tabanlı, responsive ve el işçiliği CSS3
+- Vanilla JavaScript; frontend framework yok
+- Hareket katmanında GSAP + ScrollTrigger ve Lenis
+- Model/vaka kaydırıcılarında Swiper
+- Kütüphaneler yüklenmezse temel deneyimi koruyan progressive enhancement
+- İlk sürümde form verisini doğrudan yapılandırılmış WhatsApp mesajına dönüştüren akış
+- Görsel optimizasyonu ve CDN (gerçek çekimler teslim edildiğinde)
+- GitHub Actions: smoke test, link kontrolü ve ilerleyen aşamada Lighthouse bütçesi
 
-Site basit tutulacaksa Astro da güçlü bir alternatiftir. Uygulama başlamadan barındırma, içerik yönetimi ve form teslim gereksinimine göre seçim kesinleştirilir.
+Bu seçim, özgün hareket/tasarım kontrolünü artırırken ana sayfayı derleme adımı olmadan dağıtılabilir tutar. İçerik hacmi yönetim paneli gerektirecek seviyeye geldiğinde statik site üreticisi ayrıca değerlendirilebilir.
 
 ## 2. Aşamalı plan
 
@@ -32,7 +34,7 @@ Site basit tutulacaksa Astro da güçlü bir alternatiftir. Uygulama başlamadan
 
 - Site haritası ve URL sözlüğü
 - Ana sayfa/hizmet/model içerik wireframe'leri
-- Açık tema tasarım yönü
+- Koyu, sinematik otomotiv tasarım yönü
 - Fotoğraf çekim planı
 - CTA ve randevu akışları
 - Analytics event planı

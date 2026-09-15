@@ -6,19 +6,21 @@ Site “hazır otomotiv teması” veya yapay zekâ ile üretilmiş kurumsal mak
 
 - Gerçek atölye, usta, ekipman ve araç fotoğrafları
 - Net, teknik ama anlaşılır dil
-- Ferah açık tema
+- Koyu, sinematik ve yüksek kontrastlı otomotiv atmosferi
 - Hızlı, mobil öncelikli kullanım
 - Abartılı animasyon ve yapay metal/karbon dokular yerine temiz yüzeyler
 - Ford yetkili servis kimliğini taklit etmeyen özgün A&S markası
 
-Önerilen görsel yön:
+Uygulamada seçilen görsel yön:
 
-- Ana zemin: kırık beyaz / çok açık gri
-- Metin: koyu lacivert-antrasit
-- Birincil vurgu: A&S'nin mevcut kurumsal rengi; yoksa güven veren özgün koyu mavi
-- İkincil vurgu: sınırlı kırmızı veya sıcak turuncu (acil/CTA için)
-- Geniş beyaz alan, ince ayırıcılar, küçük radius, gerçekçi gölge
+- Ana zemin: koyu grafit / antrasit; içerik ritmi için kırık beyaz bölümler
+- Metin: koyu zeminde kırık beyaz, açık zeminde antrasit
+- Birincil vurgu: kontrollü performans kırmızısı
+- İkincil vurgu: metalik gri ve teknik arayüz tonları
+- Geniş boşluk, ince ayırıcılar, keskin yüzeyler ve kontrollü ışık efektleri
 - Sans-serif, Türkçe karakterleri güçlü ve hızlı yüklenen font
+
+İlk prototipte doğrulanmış fotoğraf paketi bulunmadığı için sahte stok/AI servis fotoğrafı kullanılmaz; araç ve atölye hissi özgün CSS/SVG teknik illüstrasyonlarla kurulur. Gerçek çekimler teslim edildiğinde bu alanlar gerçek kanıt görselleriyle değiştirilir.
 
 ## 2. Hedef kullanıcılar
 

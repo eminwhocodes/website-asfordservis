@@ -3621,6 +3621,17 @@ body {
   text-transform: none;
 }
 
+.language-switcher > button,
+.language-menu span,
+.header-phone {
+  font-size: 0.78rem;
+}
+
+.mobile-menu__footer {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
 .hero {
   min-height: 820px;
   height: max(780px, 100svh);
@@ -4086,6 +4097,11 @@ body {
 
 .site-footer__bottom {
   font-size: 0.68rem;
+}
+
+.back-to-top span {
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
 }
 
 @media (max-width: 1120px) {

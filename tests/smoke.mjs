@@ -29,6 +29,10 @@ assert.match(html, /application\/ld\+json/, "Yerel işletme yapılandırılmış
 assert.match(html, /\+905330947401/g, "Telefon bağlantısı tanımlı olmalı");
 assert.match(html, /wa\.me\/905330947401/g, "WhatsApp bağlantısı tanımlı olmalı");
 assert.ok(!/bootstrap|jquery|tailwind/i.test(`${html}\n${css}\n${js}`), "Yasaklı framework/kütüphane kullanılmamalı");
+assert.ok(!/SCROLL TO EXPLORE|USTA İŞİ\s*\/|FORD SYSTEM|DIAGNOSTIC\s*<\/span>/i.test(html), "Yapay teknik mikro metinler bulunmamalı");
+assert.equal([...html.matchAll(/>0[1-9]</g)].length, 0, "Dekoratif sıra numaraları bulunmamalı");
+assert.ok([...html.matchAll(/<img\s/g)].length >= 10, "Fotoğraf alanlarında gerçek görseller bulunmalı");
+assert.match(html, /<iframe[\s\S]*google\.com\/maps\/embed/, "Gerçek Google Maps iframe'i bulunmalı");
 
 const modelValues = [...html.matchAll(/data-model="([^"]+)"/g)].map((match) => match[1]);
 for (const model of modelValues) {
@@ -45,4 +49,5 @@ execFileSync(process.execPath, ["--check", "tools/serve.mjs"], { stdio: "pipe" }
 process.stdout.write(`✓ ${requiredFiles.length} temel dosya\n`);
 process.stdout.write(`✓ ${internalLinks.length} bölüm bağlantısı\n`);
 process.stdout.write(`✓ ${modelValues.length} Ford model eşleşmesi\n`);
+process.stdout.write("✓ Gerçek fotoğraf, harita ve doğal mikro metin kontrolleri\n");
 process.stdout.write("✓ JS sözdizimi ve responsive/erişilebilirlik kontrolleri\n");

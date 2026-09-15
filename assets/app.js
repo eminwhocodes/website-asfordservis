@@ -279,7 +279,8 @@ document.documentElement.classList.add("js");
         .fromTo(".hero__lead, .hero__actions, .hero__proof", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.1, ease: "power3.out" }, "-=0.55")
         .fromTo(".hero-machine", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 1.2, ease: "power3.out" }, "-=1.1");
 
-      document.querySelectorAll(".reveal-up:not(.hero .reveal-up)").forEach((element) => {
+      document.querySelectorAll(".reveal-up").forEach((element) => {
+        if (element.closest(".hero")) return;
         gsap.fromTo(element,
           { autoAlpha: 0, y: 34 },
           {

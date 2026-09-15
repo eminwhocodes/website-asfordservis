@@ -1661,6 +1661,10 @@ address {
   overflow: visible;
 }
 
+.models-slider .swiper-wrapper {
+  display: flex;
+}
+
 .model-card {
   position: relative;
   display: flex;
@@ -1675,6 +1679,20 @@ address {
   text-align: left;
   overflow: hidden;
   transition: background 0.4s var(--ease), border-color 0.4s, transform 0.4s var(--ease);
+}
+
+.models-slider:not(.swiper-initialized) {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.models-slider:not(.swiper-initialized)::-webkit-scrollbar {
+  display: none;
+}
+
+.models-slider:not(.swiper-initialized) .model-card {
+  flex: 0 0 360px;
+  margin-right: 18px;
 }
 
 .model-card::before {
@@ -3166,6 +3184,10 @@ address {
     min-height: 290px;
   }
 
+  .models-slider:not(.swiper-initialized) .model-card {
+    flex-basis: 310px;
+  }
+
   .process-list li {
     grid-template-columns: 46px 74px 1fr;
     gap: 18px;
@@ -3395,6 +3417,10 @@ address {
   .model-card {
     width: 78vw;
     min-height: 275px;
+  }
+
+  .models-slider:not(.swiper-initialized) .model-card {
+    flex-basis: 78vw;
   }
 
   .models__foot {

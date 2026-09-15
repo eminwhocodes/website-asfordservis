@@ -43,6 +43,23 @@ assert.equal((css.match(/{/g) || []).length, (css.match(/}/g) || []).length, "CS
 assert.match(css, /@media \(max-width: 560px\)/, "Telefon kırılımı bulunmalı");
 assert.match(css, /prefers-reduced-motion/, "Hareket azaltma tercihi desteklenmeli");
 
+const typographyAudit = css.slice(css.lastIndexOf("Typography audit"));
+assert.ok(typographyAudit.length > 0, "Tipografi denetim katmanı bulunmalı");
+for (const selector of [
+  ".desktop-nav > a",
+  ".brand__text small",
+  ".hero__lead",
+  ".service-shortcuts__grid em",
+  ".symptom-selector small",
+  ".service-card > a",
+  ".booking-form label:not(.form-consent)",
+  ".site-footer__bottom",
+  ".mobile-action-bar a"
+]) {
+  assert.ok(typographyAudit.includes(selector), `${selector} okunabilir tipografi ölçeğine bağlanmalı`);
+}
+assert.ok(!/font-size:\s*0\.[0-7]\d*rem/.test(typographyAudit), "Son tipografi katmanında 0.8rem altı metin bulunmamalı");
+
 execFileSync(process.execPath, ["--check", "assets/app.js"], { stdio: "pipe" });
 execFileSync(process.execPath, ["--check", "tools/serve.mjs"], { stdio: "pipe" });
 
@@ -50,4 +67,5 @@ process.stdout.write(`✓ ${requiredFiles.length} temel dosya\n`);
 process.stdout.write(`✓ ${internalLinks.length} bölüm bağlantısı\n`);
 process.stdout.write(`✓ ${modelValues.length} Ford model eşleşmesi\n`);
 process.stdout.write("✓ Gerçek fotoğraf, harita ve doğal mikro metin kontrolleri\n");
+process.stdout.write("✓ Header, kart, form, footer ve mobil tipografi alt sınırları\n");
 process.stdout.write("✓ JS sözdizimi ve responsive/erişilebilirlik kontrolleri\n");

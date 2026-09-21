@@ -1,30 +1,36 @@
 # Görsel kaynakları
 
-Ana sayfadaki stok görseller, A&S'nin kendi atölyesi veya tamamladığı işler gibi sunulmaz. Amaç, müşteriye ait gerçek çekimler teslim edilene kadar otomotiv servis bağlamını gerçek fotoğrafla kurmaktır.
+## Şu anki durum
 
-## Kullanılan kaynaklar
+21 Eylül 2026 itibarıyla ana sayfada hiç fotoğraf yoktur.
 
-- Unsplash otomotiv servis fotoğrafları:
-  - `photo-1487754180451-c456f719a1fc`
-  - `photo-1569176330438-fa1ed1042542`
-  - `photo-1615906655593-ad0386982a0f`
-  - `photo-1599256872237-5dcc0fbe9668`
-- Pexels otomotiv servis fotoğrafları:
-  - `pexels-photo-4482031.jpeg`
-  - `pexels-photo-4489702.jpeg`
-  - `pexels-photo-4489734.jpeg`
-  - `pexels-photo-4480464.jpeg`
-  - `pexels-photo-1108101.jpeg`
+Önceki sürümde Unsplash ve Pexels'ten dokuz stok fotoğraf kullanılıyordu. Hepsi kaldırıldı, çünkü:
 
-Kaynak kullanım koşulları:
+- Hizmet kartlarında ve "servisten" bölümünde A&S'nin kendi işi gibi duruyorlardı.
+- Biri "Instagram'da gerçek paylaşım" etiketiyle birlikte gösteriliyordu.
+- Hero fotoğrafındaki motorun kapağında Toyota logosu vardı.
+- Bazıları hizmetle ilgisizdi: klasik Amerikan otomobili, baretli fabrika işçisi.
 
-- [Unsplash License](https://unsplash.com/license)
-- [Pexels License](https://www.pexels.com/license/)
+Smoke test sayfadaki `img` sayısını en fazla iki ile sınırlar. Bu sınır, stok fotoğrafların yeniden kartlara dağıtılmasını engellemek içindir; gerçek çekimler geldiğinde birlikte gevşetilebilir.
+
+## Gerçek çekim listesi
+
+Öncelik sırasıyla:
+
+1. Dükkân dış cephesi ve tabela, gündüz. Hero için.
+2. Atölye geniş plan, lift üzerinde bir Ford.
+3. M. Salih Güngör çalışırken, doğal, poz vermeden. Hakkımızda için.
+4. Arıza tespit cihazı araca bağlıyken ekran.
+5. En az iki farklı iş için işlem sırası: söküm, parça, montaj.
+
+Kurallar:
+
+- Plakalar bulanık, müşteri görünmüyor.
+- Görünen çalışanlardan yayın izni alınmış.
+- Telefonla çekilmiş dürüst fotoğraf stok fotoğraftan iyidir.
 
 ## Yayın öncesi yapılacaklar
 
-1. Hero için A&S atölyesinde geniş açılı gerçek servis çekimi.
-2. Hizmet kartları için periyodik bakım, arıza tespiti, motor, fren ve şanzıman işlemlerinden özgün kareler.
-3. M. Salih Güngör için doğal çalışma anı ve portre çekimi.
-4. Görselleri WebP/AVIF formatına çevirip boyutlandırma.
-5. Stok URL'lerini yerel optimize edilmiş dosyalarla değiştirme.
+1. Fotoğrafları WebP/AVIF'e çevirip `assets/img/` altına koymak.
+2. `srcset` ile 720 ve 1200 piksel genişlikte iki boyut üretmek.
+3. Her fotoğrafa içeriği anlatan `alt` metni yazmak.

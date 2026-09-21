@@ -41,6 +41,15 @@
           "addressRegion": "Adana",
           "addressCountry": "TR"
         },
+        "foundingDate": "2023",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
         "areaServed": ["Seyhan", "Adana"],
         "knowsAbout": ["Periyodik bakım", "Arıza tespiti", "Motor ve mekanik", "Fren ve süspansiyon", "Şanzıman"],
         "sameAs": ["https://www.instagram.com/as.autopremiumcar/"]
@@ -123,11 +132,14 @@
                 </dd>
               </div>
               <div>
+                <dt>Saatler</dt>
+                <dd>Pazartesi–Cumartesi 08.00–18.00, pazar kapalı</dd>
+              </div>
+              <div>
                 <dt>Usta</dt>
-                <dd>M. Salih Güngör</dd>
+                <dd>M. Salih Güngör, 18 yıllık tecrübe</dd>
               </div>
               <!-- Hero fotoğrafı: A&S atölyesinden gerçek çekim gelince eklenecek (docs/07). -->
-              <!-- Çalışma saatleri müşteriden teyit edilince buraya ve JSON-LD'ye eklenecek (docs/06, madde 1). -->
             </dl>
           </div>
 
@@ -267,10 +279,12 @@
         <div class="container about">
           <div class="about__text">
             <h2 id="about-title">Hakkımızda</h2>
-            <!-- Kuruluş yılı ve ustanın tecrübesi müşteriden teyit edilince eklenecek (docs/06, madde 4). -->
             <p>
-              A&amp;S Auto Premium Car Service, Seyhan Yeşiloba’da Ford binek ve hafif ticari araçlara bakan
-              bağımsız bir özel servistir. Ford Motor Company’nin yetkili servisi değiliz.
+              A&amp;S Auto Premium Car Service, 2023’ten beri Seyhan Yeşiloba’da Ford binek ve hafif ticari
+              araçlara bakan bağımsız bir özel servistir. Ford Motor Company’nin yetkili servisi değiliz.
+            </p>
+            <p>
+              Ustamız M. Salih Güngör’ün bu işte 18 yıllık tecrübesi var.
             </p>
             <p>
               Telefonda konuştuğunuz kişi, aracınıza bakan ustadır. Yaptığımız işlerden bazılarını
@@ -280,7 +294,7 @@
           </div>
           <aside class="person" aria-label="Usta ile iletişim">
             <p class="person__name">M. Salih Güngör</p>
-            <p class="person__role">Usta</p>
+            <p class="person__role">Usta, 18 yıllık tecrübe</p>
             <a class="btn btn--primary" href="tel:+905330947401">
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.2 3.8 9.4 8l-2 1.8c1.1 2.3 2.8 4 5.1 5.1l1.8-2 4.2 2.2-.8 3.8c-.2.9-1 1.5-1.9 1.5A15.9 15.9 0 0 1 3.6 8.2c0-.9.6-1.7 1.5-1.9l2.1-.5Z" /></svg>
               <span>0533 094 74 01</span>
@@ -304,6 +318,10 @@
             <details>
               <summary>Arıza lambası yanıyorsa aracı kullanmalı mıyım?</summary>
               <p>Lambanın rengi, aracın davranışı ve eşlik eden belirtiler önemlidir. Kırmızı uyarı, hararet, yağ basıncı uyarısı veya ciddi bir ses varsa aracı zorlamadan telefonla arayın.</p>
+            </details>
+            <details>
+              <summary>Hangi gün ve saatlerde açıksınız?</summary>
+              <p>Pazartesiden cumartesiye 08.00 ile 18.00 arasında açığız. Pazar günü kapalıyız.</p>
             </details>
             <details>
               <summary>Gelmeden önce randevu almam gerekir mi?</summary>
@@ -389,6 +407,10 @@
               46129. Sokak No:31/A<br />
               Seyhan / Adana
             </address>
+            <p class="contact__hours">
+              Pazartesi–Cumartesi 08.00–18.00<br />
+              Pazar kapalı
+            </p>
             <p class="contact__phone"><a href="tel:+905330947401">0533 094 74 01</a></p>
             <div class="contact__actions">
               <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ye%C5%9Filoba+Mahallesi+46129.+Sokak+No%3A31%2FA+Seyhan+Adana" target="_blank" rel="noopener">Yol tarifi al</a>
@@ -435,6 +457,7 @@
         <div>
           <h2>Adres</h2>
           <address>Yeşiloba Mahallesi<br />46129. Sokak No:31/A<br />Seyhan / Adana</address>
+          <p>Pzt–Cmt 08.00–18.00</p>
         </div>
       </div>
       <div class="container site-footer__bottom">

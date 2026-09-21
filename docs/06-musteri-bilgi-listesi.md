@@ -13,7 +13,7 @@ Bu dosya tamamlanmadan metinlerde boşluklar tahminle doldurulmamalı.
 - [ ] Ana telefon
 - [ ] WhatsApp numarası
 - [ ] E-posta
-- [ ] Çalışma gün ve saatleri
+- [x] Çalışma gün ve saatleri: Pazartesi–Cumartesi 08.00–18.00, pazar kapalı
 - [ ] Resmi tatil yaklaşımı
 - [ ] Mevcut domain veya tercih edilen domain
 - [ ] Google İşletme Profili bağlantısı ve yönetici erişimi
@@ -57,8 +57,8 @@ Her madde için `var / yok / partner / planlanıyor` seçilmeli:
 
 ## 4. Güven ve operasyon kanıtları — P0
 
-- [ ] İşletmenin kuruluş yılı
-- [ ] Ustanın adı, rolü ve doğrulanabilir tecrübesi
+- [x] İşletmenin kuruluş yılı: 2023 (21 Eylül 2026'da "3 yıl önce" olarak iletildi)
+- [x] Ustanın adı, rolü ve tecrübesi: M. Salih Güngör, usta, 18 yıl
 - [ ] Ekip üyeleri
 - [ ] Eğitim/sertifika/belgeler
 - [ ] Diagnostik cihaz ve özel ekipman listesi

@@ -15,7 +15,7 @@ Güncelleme: 21 Eylül 2026. Bölüm 8'deki adımların durumu:
 | 3. Hareket ve kütüphane kaldırma | Yapıldı | GSAP, Lenis, Swiper, yükleme ekranı ve mıknatıs buton gitti. |
 | 4. Yapı sadeleştirme | Yapıldı | Dil seçici ve mega menü kaldırıldı, model kaydırıcısı liste oldu. |
 | 5. Tasarım dili | Yapıldı | Açık zemin, Barlow, 8 px köşe. CSS 4590 satırdan 1171 satıra indi, ölü seçici yok. |
-| 6. Gerçek içerik | Müşteri bilgisi bekliyor | Çalışma saatleri, kuruluş yılı, hizmet teyidi, fotoğraflar ve Instagram paylaşımları gerekli. HTML'de yerleri yorum satırıyla işaretli. |
+| 6. Gerçek içerik | Kısmen yapıldı | Çalışma saatleri, kuruluş yılı (2023) ve 18 yıllık tecrübe eklendi. Hizmet teyidi, fotoğraflar ve Instagram paylaşımları bekliyor. |
 | 7. Doğrulama | Yapıldı | Masaüstü 1280 px ve telefon 390 px tarayıcıda gezildi. Form, belirti, model, menü ve WhatsApp mesajı denendi. Smoke test geçiyor. |
 
 Plandan iki bilinçli sapma var:

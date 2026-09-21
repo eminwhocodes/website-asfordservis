@@ -36,7 +36,6 @@
   const setMenu = (open, returnFocus = false) => {
     if (!mobileMenu || !menuToggle) return;
     mobileMenu.hidden = !open;
-    mobileMenu.classList.toggle("is-open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
     menuToggle.setAttribute("aria-label", open ? "Menüyü kapat" : "Menüyü aç");
     document.body.classList.toggle("menu-open", open);

@@ -6,19 +6,27 @@ Bu depo, Adana'da hizmet veren A&S Ford Servis için hazırlanan kurumsal web si
 
 ## Uygulama durumu
 
-Ana sayfanın ilk işlevsel tasarımı `main` dalında hazırdır.
+Site `main` dalında 37 sayfa olarak hazırdır. Tüm sayfalar ana sayfanın tasarım sistemini kullanır.
 
-- Sinematik, koyu ve Ford odaklı özgün hero
-- Sticky/blur header, masaüstü mega menü ve erişilebilir mobil menü
-- Belirti seçerek servis talebini otomatik doldurma
-- Ford model seçici ve talep formu eşleşmesi
-- Hizmet, süreç, atölye kanıtı, usta, SSS ve konum bölümleri
-- Form verilerini yapılandırılmış WhatsApp mesajına dönüştüren randevu akışı
-- Mobilde sabit `Ara / WhatsApp / Yol Tarifi` eylemleri
-- LocalBusiness/AutoRepair yapılandırılmış verisi ve temel teknik SEO
-- Harici animasyon kütüphaneleri yüklenmese de çalışan progressive enhancement yapısı
+| Bölüm | Liste | Detay sayfaları |
+|---|---|---|
+| Hizmetler | `/hizmetler/` | Periyodik bakım, arıza tespiti, motor ve mekanik, fren ve süspansiyon, şanzıman |
+| Ford modelleri | `/ford-modelleri/` | Focus, Fiesta, Puma, Kuga, Courier, Connect, Transit |
+| Arıza rehberi | `/ariza-rehberi/` | Ana sayfadaki altı belirtinin her biri |
+| Blog | `/blog/` (kategori filtresi) | Altı yazı: bakım, arıza, mevsimsel |
 
-Gerçek atölye/usta çekimleri teslim edildiğinde kod içindeki şematik görseller, performans ve erişilebilirlik korunarak gerçek içeriklerle değiştirilecektir.
+Kurumsal sayfalar: Hakkımızda, İletişim, Randevu, Sıkça Sorulan Sorular. Yasal sayfalar: KVKK aydınlatma metni, gizlilik politikası, çerez politikası. Ayrıca 404 sayfası, `sitemap.xml` ve `robots.txt` üretilir.
+
+Her sayfada ortak header, mega menü, footer, mobil `Ara / WhatsApp / Yol Tarifi` çubuğu, breadcrumb ve uygun JSON-LD (AutoRepair, BreadcrumbList, Service, Article, BlogPosting, FAQPage) bulunur. Hizmet, model ve rehber sayfalarındaki servis talebi formu ilgili hizmet, model veya belirtiyle ön dolu gelir.
+
+Ürün satışı olmadığı için ürün sayfası yoktur. Gerçek içerik gelmeden kampanya, vaka ve ilçe sayfaları açılmamıştır.
+
+### Yayından önce teyit edilecekler
+
+- `tools/site/config.mjs` içindeki alan adı (`asfordservis.com` varsayıldı)
+- Yasal metinler için ticari unvan, MERSİS ve VERBİS bilgisi
+- Arıza rehberi ve blog yazılarının usta tarafından okunması
+- Hizmet listesinin teyidi ve gerçek atölye fotoğrafları
 
 ## Yerel önizleme
 
@@ -30,13 +38,27 @@ npm run dev
 
 Ardından `http://127.0.0.1:4173` adresini açın.
 
+Sayfalar `tools/build.mjs` ile üretilir. İçerik veya şablon değiştiğinde yeniden üretin:
+
+```bash
+npm run build
+```
+
+- İçerik: `tools/site/content/` (hizmetler, modeller, rehber, blog, SSS, yasal metinler)
+- Ortak parçalar: `tools/site/layout.mjs` (head, header, footer, form, iletişim, kartlar)
+- Sayfa şablonları: `tools/site/pages.mjs`
+- Ana sayfa içeriği: `src/home.html`
+- İç sayfa stilleri: `assets/pages.css` (ana `assets/styles.css` değiştirilmez)
+
+Üretilen HTML dosyaları depoya dahildir; sunucuda derleme gerekmez.
+
 Kontrolleri çalıştırmak için:
 
 ```bash
 npm test
 ```
 
-Smoke test; temel assetleri, bölüm bağlantılarını, telefon/WhatsApp tutarlılığını, Ford model-form eşleşmesini, JS sözdizimini ve responsive/erişilebilirlik korumalarını denetler.
+Test önce üretilen dosyaların kaynakla aynı olduğunu doğrular. Ardından ana sayfa smoke testini ve tüm sayfalar için tek H1, tekil title ve description, canonical, geçerli JSON-LD, kırık iç bağlantı, ortak header ve footer ile yasaklı metin kontrollerini çalıştırır.
 
 ## Teknik yapı
 

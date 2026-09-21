@@ -24,7 +24,8 @@ const missingTargets = [...new Set(internalLinks.filter((target) => !target || !
 assert.equal(missingTargets.length, 0, `Eksik bölüm hedefleri: ${missingTargets.join(", ")}`);
 assert.ok(!html.includes('href="#"'), "Boş # bağlantısı bulunmamalı");
 assert.match(html, /<html lang="tr">/, "Sayfa dili Türkçe olmalı");
-assert.match(html, /<h1[^>]*>[\s\S]*Ford’unuzu/, "Ana sayfada Ford odaklı tekil bir H1 olmalı");
+assert.match(html, /<h1[^>]*>[\s\S]*?Adana’da[\s\S]*?Ford[\s\S]*?<\/h1>/, "Ana sayfada Ford odaklı tekil bir H1 olmalı");
+assert.ok(!/gerçek paylaşım|şeffaf kareler|işinin ehline|usta işi|mesafe yok|ilk adımı atın|Baktığımız/i.test(html.replace(/<[^>]+>/g, " ")), "Slogan veya yapay metin bulunmamalı");
 assert.match(html, /application\/ld\+json/, "Yerel işletme yapılandırılmış verisi bulunmalı");
 assert.match(html, /\+905330947401/g, "Telefon bağlantısı tanımlı olmalı");
 assert.match(html, /wa\.me\/905330947401/g, "WhatsApp bağlantısı tanımlı olmalı");

@@ -153,7 +153,7 @@ document.documentElement.classList.add("js");
 
   // Model carousel keeps working as a horizontal native list if Swiper is unavailable.
   let modelSwiper = null;
-  if (window.Swiper) {
+  if (window.Swiper && document.querySelector(".models-slider")) {
     modelSwiper = new window.Swiper(".models-slider", {
       slidesPerView: "auto",
       spaceBetween: 14,
@@ -272,12 +272,15 @@ document.documentElement.classList.add("js");
       const gsap = window.gsap;
       gsap.registerPlugin(window.ScrollTrigger);
 
-      const heroTimeline = gsap.timeline({ delay: 0.25 });
-      heroTimeline
-        .fromTo(".hero .eyebrow", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" })
-        .fromTo(".title-line > span", { yPercent: 110 }, { yPercent: 0, duration: 1.05, stagger: 0.1, ease: "power4.out" }, "-=0.35")
-        .fromTo(".hero__lead, .hero__actions, .hero__proof", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.1, ease: "power3.out" }, "-=0.55")
-        .fromTo(".hero-photo", { autoAlpha: 0, x: 48 }, { autoAlpha: 1, x: 0, duration: 1.05, ease: "power3.out" }, "-=1.05");
+      // The large homepage hero has its own entrance timeline; inner pages use the generic reveal below.
+      if (document.querySelector(".hero")) {
+        const heroTimeline = gsap.timeline({ delay: 0.25 });
+        heroTimeline
+          .fromTo(".hero .eyebrow", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" })
+          .fromTo(".title-line > span", { yPercent: 110 }, { yPercent: 0, duration: 1.05, stagger: 0.1, ease: "power4.out" }, "-=0.35")
+          .fromTo(".hero .hero__lead, .hero .hero__actions", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.1, ease: "power3.out" }, "-=0.55")
+          .fromTo(".hero-photo", { autoAlpha: 0, x: 48 }, { autoAlpha: 1, x: 0, duration: 1.05, ease: "power3.out" }, "-=1.05");
+      }
 
       document.querySelectorAll(".reveal-up").forEach((element) => {
         if (element.closest(".hero")) return;
@@ -333,6 +336,25 @@ document.documentElement.classList.add("js");
       element.addEventListener("pointerleave", () => { element.style.transform = "translate(0, 0)"; });
     });
   }
+
+  // Blog category filter. Without JavaScript every post stays visible.
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const filterList = document.querySelector("[data-filter-list]");
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.filter;
+      filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      let visible = 0;
+      filterList?.querySelectorAll("[data-category]").forEach((card) => {
+        const show = category === "all" || card.dataset.category === category;
+        card.classList.toggle("is-filtered", !show);
+        if (show) visible += 1;
+      });
+      const empty = document.querySelector(".filter-empty");
+      if (empty) empty.hidden = visible > 0;
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    });
+  });
 
   document.querySelectorAll("[data-year]").forEach((element) => {
     element.textContent = new Date().getFullYear();

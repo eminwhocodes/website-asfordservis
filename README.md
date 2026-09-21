@@ -67,6 +67,7 @@ Başarı formülü:
 - [Yol haritası, ölçüm ve kabul kriterleri](docs/05-yol-haritasi-kpi.md)
 - [Müşteriden alınacak bilgi ve materyaller](docs/06-musteri-bilgi-listesi.md)
 - [Görsel kaynakları ve çekim dönüşüm planı](docs/07-gorsel-kaynaklari.md)
+- [Tema incelemesi ve yapılacaklar](docs/08-tema-incelemesi-ve-yapilacaklar.md)
 
 ## Kritik marka ve doğruluk kuralları
 

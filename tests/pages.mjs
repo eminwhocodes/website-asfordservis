@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { buildPages } from "../tools/site/pages.mjs";
+import { SITE } from "../tools/site/config.mjs";
 
 const root = process.cwd();
 const pages = buildPages();
@@ -36,7 +37,8 @@ for (const item of pages) {
   titles.add(title);
   descriptions.add(description);
 
-  assert.match(html, /<link rel="canonical" href="https:\/\//, `${file}: canonical yok`);
+  if (SITE.url) assert.match(html, /<link rel="canonical" href="https:\/\//, `${file}: canonical yok`);
+  else assert.ok(!/rel="canonical"|og:url/.test(html), `${file}: alan adı yokken canonical/og:url olmamalı`);
   assert.match(html, /<html lang="tr">/, `${file}: dil etiketi yok`);
   assert.match(html, /class="site-header"/, `${file}: ortak header yok`);
   assert.match(html, /class="site-footer"/, `${file}: ortak footer yok`);
@@ -66,9 +68,13 @@ for (const item of pages) {
   }
 }
 
-const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-assert.equal([...sitemap.matchAll(/<loc>/g)].length, pages.length - 1, "Site haritası 404 dışındaki tüm sayfaları içermeli");
-assert.match(readFileSync(join(root, "robots.txt"), "utf8"), /Sitemap: https:\/\//, "robots.txt site haritasını göstermeli");
+if (SITE.url) {
+  const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, pages.length - 1, "Site haritası 404 dışındaki tüm sayfaları içermeli");
+  assert.match(readFileSync(join(root, "robots.txt"), "utf8"), /Sitemap: https:\/\//, "robots.txt site haritasını göstermeli");
+} else {
+  assert.ok(!existsSync(join(root, "sitemap.xml")), "Alan adı yokken sitemap.xml bulunmamalı");
+}
 
 const kinds = {
   hizmet: pages.filter((item) => item.path.startsWith("/hizmetler/") && item.path !== "/hizmetler/").length,
@@ -79,4 +85,4 @@ const kinds = {
 
 process.stdout.write(`✓ ${pages.length} sayfa: ${kinds.hizmet} hizmet, ${kinds.model} model, ${kinds.rehber} rehber, ${kinds.blog} blog detayı\n`);
 process.stdout.write(`✓ ${linkCount} iç bağlantı çözüldü, başlık ve açıklamalar tekil\n`);
-process.stdout.write("✓ Header, footer, JSON-LD, site haritası ve metin kontrolleri\n");
+process.stdout.write(`✓ Header, footer, JSON-LD${SITE.url ? ", site haritası" : ""} ve metin kontrolleri\n`);

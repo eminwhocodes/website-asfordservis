@@ -81,14 +81,12 @@ const head = ({ title, description, path, jsonLd = [], ogType = "website", noind
     <meta name="theme-color" content="#07090d" />
     <meta name="description" content="${esc(description)}" />
     <meta name="robots" content="${noindex ? "noindex, follow" : "index, follow"}" />
-    <link rel="canonical" href="${SITE.url}${path}" />
-    <meta property="og:type" content="${ogType}" />
+${SITE.url ? `    <link rel="canonical" href="${SITE.url}${path}" />\n` : ""}    <meta property="og:type" content="${ogType}" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:site_name" content="${esc(SITE.name)}" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
-    <meta property="og:url" content="${SITE.url}${path}" />
-    <title>${esc(title)}</title>
+${SITE.url ? `    <meta property="og:url" content="${SITE.url}${path}" />\n` : ""}    <title>${esc(title)}</title>
 
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

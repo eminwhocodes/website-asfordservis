@@ -1,8 +1,9 @@
 // İşletme bilgileri tek yerde tutulur; tüm sayfalar buradan okur.
-// Alan adı henüz müşteriden teyit edilmedi (docs/06, madde 1). Yayın öncesi güncellenmeli.
+// url: Alan adı belli olunca "https://ornek.com" biçiminde yazın (sonda / olmadan).
+// Boş kaldığı sürece canonical, og:url ve sitemap.xml üretilmez; site yerelde çalışır.
 
 export const SITE = {
-  url: "https://asfordservis.com",
+  url: "",
   name: "A&S Auto Premium Car Service",
   shortName: "A&S Auto Premium",
   phone: "+905330947401",

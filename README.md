@@ -15,7 +15,7 @@ Site `main` dalında 37 sayfa olarak hazırdır. Tüm sayfalar ana sayfanın tas
 | Arıza rehberi | `/ariza-rehberi/` | Ana sayfadaki altı belirtinin her biri |
 | Blog | `/blog/` (kategori filtresi) | Altı yazı: bakım, arıza, mevsimsel |
 
-Kurumsal sayfalar: Hakkımızda, İletişim, Randevu, Sıkça Sorulan Sorular. Yasal sayfalar: KVKK aydınlatma metni, gizlilik politikası, çerez politikası. Ayrıca 404 sayfası, `sitemap.xml` ve `robots.txt` üretilir.
+Kurumsal sayfalar: Hakkımızda, İletişim, Randevu, Sıkça Sorulan Sorular. Yasal sayfalar: KVKK aydınlatma metni, gizlilik politikası, çerez politikası. Ayrıca 404 sayfası ve `robots.txt` üretilir. `sitemap.xml` alan adı girildiğinde üretilir.
 
 Her sayfada ortak header, mega menü, footer, mobil `Ara / WhatsApp / Yol Tarifi` çubuğu, breadcrumb ve uygun JSON-LD (AutoRepair, BreadcrumbList, Service, Article, BlogPosting, FAQPage) bulunur. Hizmet, model ve rehber sayfalarındaki servis talebi formu ilgili hizmet, model veya belirtiyle ön dolu gelir.
 
@@ -23,7 +23,7 @@ Her sayfada ortak header, mega menü, footer, mobil `Ara / WhatsApp / Yol Tarifi
 
 ### Yayından önce teyit edilecekler
 
-- `tools/site/config.mjs` içindeki alan adı (`asfordservis.com` varsayıldı)
+- Alan adı: `tools/site/config.mjs` içindeki `url` şimdilik boş. Doldurulunca canonical, `og:url` ve `sitemap.xml` otomatik üretilir
 - Yasal metinler için ticari unvan, MERSİS ve VERBİS bilgisi
 - Arıza rehberi ve blog yazılarının usta tarafından okunması
 - Hizmet listesinin teyidi ve gerçek atölye fotoğrafları

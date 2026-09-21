@@ -19,7 +19,8 @@ const outputs = pages.map((item) => ({
 }));
 
 const indexable = pages.filter((item) => item.path !== "/404.html");
-outputs.push({
+// Site haritası mutlak adres ister; alan adı girilene kadar üretilmez.
+if (SITE.url) outputs.push({
   file: "sitemap.xml",
   content: `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -31,9 +32,7 @@ outputs.push({
   file: "robots.txt",
   content: `User-agent: *
 Allow: /
-
-Sitemap: ${SITE.url}/sitemap.xml
-`
+${SITE.url ? `\nSitemap: ${SITE.url}/sitemap.xml\n` : ""}`
 });
 
 const stale = [];
@@ -53,4 +52,4 @@ if (check && stale.length) {
   process.exit(1);
 }
 
-process.stdout.write(`${check ? "✓ Güncel" : "✓ Üretildi"}: ${pages.length} sayfa, sitemap.xml, robots.txt\n`);
+process.stdout.write(`${check ? "✓ Güncel" : "✓ Üretildi"}: ${pages.length} sayfa, ${SITE.url ? "sitemap.xml, " : ""}robots.txt${SITE.url ? "" : " (alan adı yok, sitemap atlandı)"}\n`);

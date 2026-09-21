@@ -11,16 +11,16 @@ Site “hazır otomotiv teması” veya yapay zekâ ile üretilmiş kurumsal mak
 - Abartılı animasyon ve yapay metal/karbon dokular yerine temiz yüzeyler
 - Ford yetkili servis kimliğini taklit etmeyen özgün A&S markası
 
-Uygulamada seçilen görsel yön (21 Eylül 2026 revizyonu, bkz. [tema incelemesi](08-tema-incelemesi-ve-yapilacaklar.md)):
+Uygulamada seçilen görsel yön:
 
-- Ana zemin: kırık beyaz; bölüm ritmi için beyaz bantlar. Header, form bölümü ve footer koyu antrasit.
-- Vurgu: tek kırmızı; yalnızca telefon, ana buton ve ikonlarda.
-- Yazı: Barlow gövde, Barlow Semi Condensed başlık. Gövde 17 px, en küçük metin 15 px.
-- Köşe: tüm kart ve butonlarda 6 ila 8 px.
-- Gradient, ışık lekesi, blur, yükleme ekranı, yumuşak kaydırma ve kaydırmayla açılan animasyon yok.
-- Başlıklar bölümün ne olduğunu söyler: "Hizmetlerimiz", "Nasıl çalışıyoruz". Slogan ve kırmızı üst etiket kullanılmaz.
+- Ana zemin: koyu grafit / antrasit; içerik ritmi için kırık beyaz bölümler
+- Metin: koyu zeminde kırık beyaz, açık zeminde antrasit
+- Birincil vurgu: kontrollü performans kırmızısı
+- İkincil vurgu: metalik gri ve teknik arayüz tonları
+- Geniş boşluk, ince ayırıcılar, keskin yüzeyler ve kontrollü ışık efektleri
+- Sans-serif, Türkçe karakterleri güçlü ve hızlı yüklenen font
 
-Doğrulanmış fotoğraf paketi gelene kadar sayfada fotoğraf kullanılmaz. Gerçek çekimler geldiğinde hero ve hakkımızda bölümüne eklenir.
+İlk prototipte doğrulanmış fotoğraf paketi bulunmadığı için sahte stok/AI servis fotoğrafı kullanılmaz; araç ve atölye hissi özgün CSS/SVG teknik illüstrasyonlarla kurulur. Gerçek çekimler teslim edildiğinde bu alanlar gerçek kanıt görselleriyle değiştirilir.
 
 ## 2. Hedef kullanıcılar
 

@@ -6,18 +6,19 @@ Bu depo, Adana'da hizmet veren A&S Ford Servis için hazırlanan kurumsal web si
 
 ## Uygulama durumu
 
-Ana sayfa `main` dalında hazırdır. 21 Eylül 2026'da [tema incelemesi](docs/08-tema-incelemesi-ve-yapilacaklar.md) sonrasında ajans maketi görünümünden sade bir işletme sitesine çevrildi.
+Ana sayfanın ilk işlevsel tasarımı `main` dalında hazırdır.
 
-- Açık zemin, koyu header/footer, Barlow yazı ailesi, tek 8 px köşe yarıçapı
-- İlk ekranda ne yapıldığı, telefon, WhatsApp, adres, usta adı ve belirti seçici
-- Belirti, model ve hizmet seçimlerinin servis talebi formunu doldurması
-- Form verilerini WhatsApp mesajına dönüştüren talep akışı
-- Hizmet, model, süreç, hakkımızda, SSS, adres ve harita bölümleri
-- Mobilde sabit `Ara / WhatsApp / Yol tarifi` eylemleri
-- AutoRepair yapılandırılmış verisi ve temel teknik SEO
-- Animasyon, yumuşak kaydırma veya slider kütüphanesi yok; tek dosya sade JavaScript
+- Sinematik, koyu ve Ford odaklı özgün hero
+- Sticky/blur header, masaüstü mega menü ve erişilebilir mobil menü
+- Belirti seçerek servis talebini otomatik doldurma
+- Ford model seçici ve talep formu eşleşmesi
+- Hizmet, süreç, atölye kanıtı, usta, SSS ve konum bölümleri
+- Form verilerini yapılandırılmış WhatsApp mesajına dönüştüren randevu akışı
+- Mobilde sabit `Ara / WhatsApp / Yol Tarifi` eylemleri
+- LocalBusiness/AutoRepair yapılandırılmış verisi ve temel teknik SEO
+- Harici animasyon kütüphaneleri yüklenmese de çalışan progressive enhancement yapısı
 
-Sayfada şu an hiç fotoğraf yok. Stok fotoğraflar A&S'nin işi gibi göründüğü ve hero fotoğrafında başka marka motor olduğu için kaldırıldı. A&S atölyesinden gerçek çekimler geldiğinde hero ve hakkımızda bölümüne eklenecek ([çekim listesi](docs/07-gorsel-kaynaklari.md)).
+Gerçek atölye/usta çekimleri teslim edildiğinde kod içindeki şematik görseller, performans ve erişilebilirlik korunarak gerçek içeriklerle değiştirilecektir.
 
 ## Yerel önizleme
 
@@ -35,13 +36,14 @@ Kontrolleri çalıştırmak için:
 npm test
 ```
 
-Smoke test; bölüm bağlantılarını, telefon/WhatsApp tutarlılığını, Ford model-form eşleşmesini ve JS sözdizimini denetler. Ayrıca slogan metinlerini, stok fotoğrafların kanıt gibi kullanılmasını, 15 px altı yazıyı, büyük köşe yarıçaplarını, gradient/blur efektlerini, animasyon kütüphanelerini ve kullanılmayan CSS'i engeller.
+Smoke test; temel assetleri, bölüm bağlantılarını, telefon/WhatsApp tutarlılığını, Ford model-form eşleşmesini, JS sözdizimini ve responsive/erişilebilirlik korumalarını denetler.
 
 ## Teknik yapı
 
 - Semantik HTML5
 - Token tabanlı, responsive CSS3
 - Vanilla JavaScript
+- GSAP + ScrollTrigger, Lenis ve Swiper (CDN; kütüphane yokluğunda fallback mevcut)
 - Framework, Bootstrap, jQuery ve Tailwind yok
 
 ## Ana strateji

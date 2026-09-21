@@ -52,11 +52,14 @@ for (const item of pages) {
   }
 
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
-  for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
+  const pageDir = `/${file.split(/[\\/]/).slice(0, -1).join("/")}`.replace(/\/$/, "");
+  for (const [, attr, href] of html.matchAll(/\s(href|src)="([^"]+)"/g)) {
     if (href.startsWith("#")) {
       assert.ok(ids.has(href.slice(1)), `${file}: ${href} hedefi yok`);
-    } else if (href.startsWith("/")) {
-      assert.ok(resolves(href), `${file}: kırık iç bağlantı ${href}`);
+    } else if (!/^(?:[a-z]+:|\/\/)/i.test(href)) {
+      if (!SITE.url) assert.ok(!href.startsWith("/"), `${file}: yerel modda kök yolu var (${attr}="${href}"), çift tıklamayla açılmaz`);
+      const absolute = href.startsWith("/") ? href : new URL(href, `http://x${pageDir}/`).pathname;
+      assert.ok(resolves(absolute), `${file}: kırık iç bağlantı ${href}`);
       linkCount += 1;
     }
   }

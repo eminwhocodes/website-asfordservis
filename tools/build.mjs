@@ -13,10 +13,24 @@ const check = process.argv.includes("--check");
 
 const pages = buildPages();
 
-const outputs = pages.map((item) => ({
-  file: item.file ?? (item.path === "/" ? "index.html" : join(item.path.replace(/^\/|\/$/g, ""), "index.html")),
-  content: item.html
-}));
+const fileFor = (item) => item.file ?? (item.path === "/" ? "index.html" : `${item.path.replace(/^\/|\/$/g, "")}/index.html`);
+
+// Alan adı yokken site, dosyaya çift tıklanarak (file://) da açılabilsin diye
+// kök yolları sayfanın konumuna göre göreli yola çevrilir ve klasör bağlantılarına
+// index.html eklenir. Alan adı girildiğinde temiz, köke göre adresler kullanılır.
+const localize = (html, file) => {
+  const prefix = "../".repeat(file.split("/").length - 1);
+  return html.replace(/(\s(?:href|src)=")\/(?!\/)([^"]*)"/g, (match, attr, rest) => {
+    const [pathPart, hash = ""] = rest.split(/(?=#)/);
+    const target = pathPart === "" || pathPart.endsWith("/") ? `${pathPart}index.html` : pathPart;
+    return `${attr}${prefix}${target}${hash}"`;
+  });
+};
+
+const outputs = pages.map((item) => {
+  const file = fileFor(item);
+  return { file, content: SITE.url ? item.html : localize(item.html, file) };
+});
 
 const indexable = pages.filter((item) => item.path !== "/404.html");
 // Site haritası mutlak adres ister; alan adı girilene kadar üretilmez.
